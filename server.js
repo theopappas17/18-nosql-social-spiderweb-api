@@ -8,7 +8,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.post('/api/users', (req, res) => {
+app.post('/users', (req, res) => {
   const newUser = new User({ name: req.params.user });
   newUser.save();
   if (newUser) {
@@ -19,7 +19,7 @@ app.post('/api/users', (req, res) => {
   }
 });
 
-app.post('/api/thoughts', (req, res) => {
+app.post('/thoughts', (req, res) => {
   const newThought = new Thought({ name: req.params.thought });
   newThought.save();
   if (newThought) {
@@ -64,7 +64,7 @@ app.get('/users/:user_id', (req, res) => {
   });
 });
 
-app.get('/thoughts/:thougt_id', (req, res) => {
+app.get('/thoughts/:thought_id', (req, res) => {
   Thought.findOne({ name: 'Thought' }, (err, result) => {
     if (result) {
       res.status(200).json(result);

@@ -16,12 +16,10 @@ const userSchema = new mongoose.Schema({
           isAsync: false
         }
     },
-  thoughts: {
-    id: mongoose.Types.ObjectId,
-  },
-  friends: {
-    id: mongoose.Types.ObjectId,
-  }
+  thoughts: [{
+    type: mongoose.Types.ObjectId,
+    ref: 'Thought'
+  }],
 });
 
 // Using mongoose.model() to compile a model based on the schema 'bookSchema'
